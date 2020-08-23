@@ -1,7 +1,7 @@
 var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
-var categorySchema = new Schema({
+var userSchema = new Schema({
     name:{
         type:String,
         required:true
@@ -13,6 +13,6 @@ var categorySchema = new Schema({
     }
 });
 
-var Category = mongoose.model("user", categorySchema);
+var User = mongoose.model("user", userSchema);
 
-module.exports = Category;
+module.exports = User;
