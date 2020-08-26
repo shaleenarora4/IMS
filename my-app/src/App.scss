@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Patua+One&display=swap');
+
+*{
+    padding:0px 0px;
+    margin:0px 0px;
+}
+body::before{
+    content:"";
+    position: absolute;
+    background: url('https://awdaz.com/wp-content/uploads/2019/02/warehouse-background.png');
+    height: 100%;
+    width: 100%;
+    opacity: 0.65;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1;
+}
+
+.container{
+    max-width: 100%;
+    .entry{
+        font-family: 'Patua One', cursive;
+        text-align: center;
+        margin-top: 10vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+            h1{
+                font-size: 5vw;
+                min-width:25% ;
+                max-width: 50%;
+            }
+            .btn{
+                margin:10px 10px;
+                padding:10px 5vw;
+                background-color: crimson;
+                border:none;
+                border-radius: 10px;
+            }
+            .btn:hover{
+                background-color: #ed143dad;
+                transition: 0.2 ease-in-out;
+            }
+            .btn:active{
+                border-color:white;
+                background-color: #ed143dad;
+            }
+    }
+    .signup{
+        width:45%;
+        margin:10vw  auto;
+        font-weight: bold;
+        .btn{
+            background-color: crimson;
+            border:none;
+            border-radius: 10px;
+        }
+        .btn:hover{
+            background-color: #ed143dad;
+            transition: 0.2 ease-in-out;
+        }
+        .btn:active{
+            border-color:white;
+            background-color: #ed143dad;
+        }
+    }
+
+    .default{
+        display: flex;
+        justify-content: center;
+        margin-top: 10vw;
+    }
+}
