@@ -48,9 +48,12 @@ body::before{
             }
     }
     .signup{
-        width:45%;
-        margin:10vw  auto;
+        width: 60%;
+        color: white;
+        margin: 10vw auto;
         font-weight: bold;
+        background: #1d1a1adb;
+        padding: 57px 24px;        
         .btn{
             background-color: crimson;
             border:none;
