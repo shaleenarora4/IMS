@@ -18,6 +18,11 @@ body::before{
 
 .container{
     max-width: 100%;
+    .userName{
+        margin-left: 70vw;
+        font-weight: bold;
+        
+    }
     .entry{
         font-family: 'Patua One', cursive;
         text-align: center;

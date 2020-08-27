@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function Nav() {
+function Nav(props) {
     return (
         <nav className="navbar navbar-dark navbar-expand-sm">
             <ul class="navbar-nav align-items-center">
@@ -16,6 +16,9 @@ function Nav() {
                     </Link>
                 </li>
             </ul>
+            {/* <ul class="nav navbar-nav navbar-right">
+                <li className='username'>{props.currentUser}</li>
+            </ul>             */}
         </nav>
     );
 }

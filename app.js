@@ -1,6 +1,8 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 var app = express();
+var cors = require('cors');
+const getusers=require('./api/getusers');
 const signup=require('./api/signup');
 const login=require('./api/login');
 const categories=require('./api/categories');
@@ -11,7 +13,7 @@ mongoose.connect("mongodb://localhost:27017/inventory", { useUnifiedTopology: tr
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
+app.use(cors());
 
 app.get('/', function (req, res) {
     try {
@@ -23,6 +25,7 @@ app.get('/', function (req, res) {
 
 app.post('/signup',signup);
 app.post('/login',login);
+app.get('/getusers',getusers);
 app.use('/categories',categories);
 app.use('/subcategories',subcategories);
 app.use('/products',products);
