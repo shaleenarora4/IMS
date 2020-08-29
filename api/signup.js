@@ -7,19 +7,13 @@ const signup = (req, res) => {
             return res.status(200).json({msg:"Missing name or Password"});
         }
         else {
-            User.count({ name: name, password: password }, function (e, result) {
-                if (e) {
-                    return res.status(500).json({error:e});
-                }
-                else {
-                    if (result === 1) {
-                        return res.status(200).json({msg:"Signup Successfull"});
-                    }
-                    else {
-                        return res.status(200).json({msg:"Invalid User"});
-                    }
-                }
-            });
+            User.create({ name: name, password: password,isValid:true }, function (e, result) {
+                if (e) 
+                    return res.json({msg:"User already exists"});
+                
+                else                 
+                        return res.json({msg:"Signup Successfull"});                 
+                });
         }
     }
     catch (error) {
@@ -28,3 +22,4 @@ const signup = (req, res) => {
 }
 
 module.exports = signup;
+

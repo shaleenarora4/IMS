@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
+import MyVerticallyCenteredModal from './MyVerticallyCenteredModel';
+
 
 function Signup(props) {
 
     const [result, setResult] = useState('');
     const [username,setUserName]=useState('');
     const [password,setPassword]=useState(''); 
+    // const [modalShow, setModalShow] =useState(false);
 
-    function validate() {
+    function verify() {
         //calls signup api from backend.
         fetch('http://localhost:4000/signup', {
             method: 'POST',
@@ -14,13 +17,13 @@ function Signup(props) {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({ name: username, password: password })
-        }).then(res => res.json()).then((data) => setResult(data.msg));  
+        }).then(res => res.json()).then((data) => setResult(data.msg)).catch((e)=>console.log(e));  
         console.log(result);     
     }
-
+    
     return (
-        <form className='signup'>
-            <div>{result}</div>
+        <form className='signup' >
+            <div >{result}</div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Email address</label>
                 <input type="text" onChange={(e)=>{setUserName(e.target.value)}} class="form-control" id="username" aria-describedby="emailHelp" placeholder="Enter name" />
@@ -30,9 +33,18 @@ function Signup(props) {
                 <input type="password" onKeyUp={(e)=>{setPassword(e.target.value)}} class="form-control" id="userPassword" placeholder="Password" />
                 <small  class="form-text">We'll never share your password with anyone else.</small>
             </div>
-            <button  class="btn btn-primary" onClick={validate()}>Submit</button>            
+            <button  type='button' class="btn btn-primary" onClick={verify}>Register</button> 
+            <small  class="form-text">Already a user?
+            <button type="button" id='loginbtn' class="btn btn-primary btn-sm" variant="primary" onClick={()=>window.location.href='/login'}>Login</button></small>  
+            {/* <button type="button" id='loginbtn' class="btn btn-primary btn-sm" variant="primary" onClick={() => setModalShow(true)}>Login</button></small>       
+            {/* <MyVerticallyCenteredModal */}
+            {/*show={modalShow}
+            onHide={() => setModalShow(false)}/> */}
         </form>
     );
 }
 
 export default Signup;
+
+
+

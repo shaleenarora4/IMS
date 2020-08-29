@@ -6,7 +6,7 @@ function Login(props) {
     const [username,setUserName]=useState('');
     const [password,setPassword]=useState(''); 
     
-    function validate() {     
+    function verify() {     
         //calls login api from backend.
         fetch('http://localhost:4000/login', {
             method: 'POST',
@@ -31,7 +31,7 @@ function Login(props) {
                 <input type="password" onChange={(e)=>{setPassword(e.target.value)}} class="form-control" id="userPassword" placeholder="Password" />
                 <small  class="form-text">We'll never share your password with anyone else.</small>
             </div>
-            <button type="submit" class="btn btn-primary" onClick={validate()}>Login</button>
+            <button type="button" class="btn btn-primary" onClick={verify}>Login</button>
 
         </form>
     );

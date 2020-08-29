@@ -12,13 +12,12 @@ import Default from './Components/Default';
 
 function App (){
     const [userData,setUserData]=useState({});     
-    const path='/';
+    
     return (
         <div className='container'>
             <Nav />
             <Switch>
                 <Route exact path='/' component={Entry}/>
-                <Route exact path='/signup' component={()=><Signup/>}/>
                 <Route path='/login' component={()=><Login />}/>
                 <Route path='/home' component={Home}/>
                 <Route component={Default}/>

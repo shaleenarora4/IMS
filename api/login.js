@@ -10,13 +10,13 @@ const login= (req, res) => {
             return res.status(200).json({msg:"Missing name or Password"});
         }
         else {
-            User.count({ name: name, password: password }, function (error, result) {
+            User.count({ name: name, password: password,isValid:true }, function (error, result) {
                 if (error) {
                    return res.status(500).json({error:e});
                 }
                 else {
                     if (result<1 || result >1) {
-                        return res.status(200).json({msg:'Either username or password is incorrect'});
+                        return res.status(200).json({msg:'Not valid credentials. Check with your organisation'});
                     }
                     if (result ===1) {
                         const token = jwt.sign({ name }, jwtKey, {

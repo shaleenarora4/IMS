@@ -16,9 +16,6 @@ function Nav(props) {
                     </Link>
                 </li>
             </ul>
-            {/* <ul class="nav navbar-nav navbar-right">
-                <li className='username'>{props.currentUser}</li>
-            </ul>             */}
         </nav>
     );
 }

@@ -4,12 +4,17 @@ var Schema = mongoose.Schema;
 var userSchema = new Schema({
     name:{
         type:String,
-        required:true
+        required:true,
+        unique:true
     },
     password:{
         type:String,
         required:true,
         minlength:5
+    },
+    isValid:{
+        type:Boolean,
+        required:true
     }
 });
 
