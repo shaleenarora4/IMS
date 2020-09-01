@@ -9,6 +9,7 @@ function Entry() {
             <div>
                 <Signup/>            
             </div>
+            <></>
         </div>
     );
 }

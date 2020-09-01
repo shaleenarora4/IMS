@@ -1,6 +1,7 @@
 import React,{useState} from 'react';
+import {Redirect} from 'react-router-dom';
 
-function Login(props) {
+function Login() {
 
     const [result, setResult] = useState('');
     const [username,setUserName]=useState('');
@@ -16,23 +17,23 @@ function Login(props) {
             body: JSON.stringify({ name: username, password: password })
         }).then(res => res.json()).then((data) => {
             console.log(data.token);
-            setResult(data.msg)});         
+            setResult(data.msg)});  
+            console.log(`Welcome ${username}!`);            
     }
 
     return (
-        <form className='login'>
-            <div>{result}</div>
+        <form className='login' autocomplete="off">
+            <div>{result===`Welcome ${username}!`?<Redirect to ="/home"/>:result}</div>
             <div class="form-group">
-                <label for="exampleInputEmail1">Email address</label>
+                <label >Email address</label>
                 <input type="text" onChange={(e)=>{setUserName(e.target.value)}} class="form-control" id="username" aria-describedby="emailHelp" placeholder="Enter name" />
             </div>
             <div class="form-group">
-                <label for="exampleInputPassword1">Password</label>
+                <label>Password</label>
                 <input type="password" onChange={(e)=>{setPassword(e.target.value)}} class="form-control" id="userPassword" placeholder="Password" />
                 <small  class="form-text">We'll never share your password with anyone else.</small>
             </div>
-            <button type="button" class="btn btn-primary" onClick={verify}>Login</button>
-
+            <button type="button" class="btn btn-primary" onClick={verify} >Login</button>
         </form>
     );
 }

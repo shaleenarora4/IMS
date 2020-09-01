@@ -1,11 +1,18 @@
-import React from 'react'; 
+import React, { useState } from 'react';
+import Sidebar from './Sidebar';
+import Main from './Main';
 
-function Home(){
+
+function Home() {
+    const [activitySelected, setActivity] = useState('');
+
     return (
-            <div>
-                <h3>This is Home </h3>    
-            </div>
+        <div className='home'>
+            <Sidebar updateActivity={setActivity} />
+            <Main getActivity={activitySelected}/>            
+        </div>
     );
+
 }
 
 export default Home;

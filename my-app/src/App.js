@@ -4,7 +4,7 @@ import './App.scss';
 import {Switch,Route} from 'react-router-dom';
 import Nav from './Components/Nav';
 import Entry from './Components/Entry';
-import Signup from './Components/Signup';
+import Category from './Components/Category';
 import Login from './Components/Login';
 import Home from './Components/Home';
 import Default from './Components/Default';
@@ -18,8 +18,9 @@ function App (){
             <Nav />
             <Switch>
                 <Route exact path='/' component={Entry}/>
-                <Route path='/login' component={()=><Login />}/>
+                <Route path='/login' component={Login}/>
                 <Route path='/home' component={Home}/>
+                <Route path='/categories' component={Category}/>
                 <Route component={Default}/>
             </Switch>   
         </div>

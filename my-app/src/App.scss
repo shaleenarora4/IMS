@@ -7,7 +7,8 @@
 body::before{
     content:"";
     position: absolute;
-    background: url('https://awdaz.com/wp-content/uploads/2019/02/warehouse-background.png');
+    // background: url('https://awdaz.com/wp-content/uploads/2019/02/warehouse-background.png');
+    background:#9b9b9b8c;
     height: 100%;
     width: 100%;
     opacity: 0.65;
@@ -18,6 +19,37 @@ body::before{
 
 .container{
     max-width: 100%;
+    .home{
+        display: flex;
+        .sidebar{
+            display: flex;
+            flex-direction: column; 
+            width:100%;
+            ul.show{
+                display: inline-block;
+                background: transparent;
+                list-style-type:none;
+                padding:2px 100px;
+                color:black;
+                text-align: center;
+            }
+            ul :hover{
+                background-color: #dbdbdb;
+            }
+            ul.hide{
+                display: none;
+            }
+            button{
+                padding:10px 100px;
+                margin:2px 0px;
+            }
+        }
+        .category{
+            table{
+                margin:10px 20px;
+            }
+        }
+    }
     .entry{        
         font-family: 'Patua One', cursive;
         text-align: center;
@@ -97,4 +129,6 @@ body::before{
         justify-content: center;
         margin-top: 10vw;
     }
+    
+
 }

@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import MyVerticallyCenteredModal from './MyVerticallyCenteredModel';
-
 
 function Signup(props) {
 
@@ -24,22 +22,18 @@ function Signup(props) {
     return (
         <form className='signup' >
             <div >{result}</div>
-            <div class="form-group">
-                <label for="exampleInputEmail1">Email address</label>
+            <div class="form-group" autocomplete="off">
+                <label >Email address</label>
                 <input type="text" onChange={(e)=>{setUserName(e.target.value)}} class="form-control" id="username" aria-describedby="emailHelp" placeholder="Enter name" />
             </div>
             <div class="form-group">
-                <label for="exampleInputPassword1">Password</label>
+                <label>Password</label>
                 <input type="password" onKeyUp={(e)=>{setPassword(e.target.value)}} class="form-control" id="userPassword" placeholder="Password" />
                 <small  class="form-text">We'll never share your password with anyone else.</small>
             </div>
             <button  type='button' class="btn btn-primary" onClick={verify}>Register</button> 
             <small  class="form-text">Already a user?
-            <button type="button" id='loginbtn' class="btn btn-primary btn-sm" variant="primary" onClick={()=>window.location.href='/login'}>Login</button></small>  
-            {/* <button type="button" id='loginbtn' class="btn btn-primary btn-sm" variant="primary" onClick={() => setModalShow(true)}>Login</button></small>       
-            {/* <MyVerticallyCenteredModal */}
-            {/*show={modalShow}
-            onHide={() => setModalShow(false)}/> */}
+            <button type="button" id='loginbtn' class="btn btn-primary btn-sm" variant="primary" onClick={()=>window.location.href='/login'}>Login</button></small>                          
         </form>
     );
 }

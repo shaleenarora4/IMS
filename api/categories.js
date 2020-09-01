@@ -11,7 +11,7 @@ router.post('/create', function (req, res) {
         else{
             categorySchema.create({name:name}).then(()=>
             {res.json({msg:"success"})}).catch((e)=>
-                res.json({msg:'no such caegory exists'})); 
+                res.json({msg:'category already exists'})); 
         }    
     } catch (error) {
         return res.status(500).json({error:error});
